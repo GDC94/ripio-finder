@@ -41,7 +41,7 @@ const DetailsTransaction = () => {
       <Modal onClose={onClose} size={"xs"} isOpen={isOpen}>
         <ModalOverlay />
         <ModalContent bg="#f0efef" minH="400px">
-          <ModalHeader p="3" color="black">
+          <ModalHeader textAlign="center" p="3" mb="2" color="black">
             Información adicional
           </ModalHeader>
 
@@ -65,19 +65,45 @@ const DetailsTransaction = () => {
                   Número de bloque:{" "}
                 </Badge>
               </Tooltip>
-              <Text ml="3" fontWeight="bold" color="black" fontSize="20px">
+              <Text ml="3" fontWeight="bold" color="black" fontSize="15px">
                 {" "}
                 8{" "}
               </Text>
             </Flex>
-            <Flex flexDirection="row" alignItems="center">
+
+            <Flex mt="3" flexDirection="row" alignItems="center">
               <Tooltip
                 boxShadow="dark-lg"
                 bg="black"
                 rounded="md"
                 textAlign="center"
                 label={
-                  "El Gas en Ethereum es una unidad de medida utilizada para medir el trabajo realizado por Ethereum para realizar transacciones o cualquier interacción dentro de la red."
+                  "Es un dato almacenado en cada bloque a modo de serial único que tienen como principal función determinar el momento exacto en el que el bloque ha sido sido minado y validado por la red"
+                }
+              >
+                <Badge
+                  maxW="max-content"
+                  bg="#032755"
+                  color="white"
+                  fontWeight="bold"
+                >
+                  Time-stamp:{" "}
+                </Badge>
+              </Tooltip>
+              <Text ml="3" fontWeight="bold" color="black" fontSize="15px">
+                {" "}
+                1438948043{" "}
+              </Text>
+            </Flex>
+
+            <Flex mt="3" flexDirection="row" alignItems="center">
+              <Tooltip
+                boxShadow="dark-lg"
+                bg="black"
+                rounded="md"
+                textAlign="center"
+                label={
+                  "El GAS es una unidad de medida utilizada para cuantificar el trabajo realizado por Ethereum para ejecutar transacciones o cualquier interacción dentro de la red."
                 }
               >
                 <Badge
@@ -89,13 +115,13 @@ const DetailsTransaction = () => {
                   Gas utilizado:{" "}
                 </Badge>
               </Tooltip>
-              <Text ml="3" fontWeight="bold" color="black" fontSize="20px">
+              <Text ml="3" fontWeight="bold" color="black" fontSize="15px">
                 {" "}
                 8{" "}
               </Text>
             </Flex>
 
-            <Flex flexDirection="row" alignItems="center">
+            <Flex mt="3" flexDirection="row" alignItems="center">
               <Tooltip
                 boxShadow="dark-lg"
                 bg="black"
@@ -114,16 +140,21 @@ const DetailsTransaction = () => {
                   Nonce:{" "}
                 </Badge>
               </Tooltip>
-              <Text ml="3" fontWeight="bold" color="black" fontSize="20px">
+              <Text ml="3" fontWeight="bold" color="black" fontSize="15px">
                 {" "}
                 8{" "}
               </Text>
             </Flex>
             <Flex h="70px" alignItems="center" justifyContent="space-between">
               <Flex flexDirection="column">
-                <Text fontSize="13px" fontWeight="extrabold">
+                <Badge
+                  maxW="max-content"
+                  bg="#032755"
+                  color="white"
+                  fontWeight="bold"
+                >
                   Origen
-                </Text>
+                </Badge>
                 <Flex flexDirection="row" alignItems="center">
                   <Tooltip
                     boxShadow="dark-lg"
@@ -154,9 +185,14 @@ const DetailsTransaction = () => {
               <Image mt="5" src={block} w="35px" alt="" />
 
               <Flex flexDirection="column" alignItems="end">
-                <Text fontSize="13px" fontWeight="extrabold">
+                <Badge
+                  maxW="max-content"
+                  bg="#032755"
+                  color="white"
+                  fontWeight="bold"
+                >
                   Destino
-                </Text>
+                </Badge>
                 <Flex flexDirection="row-reverse" alignItems="center">
                   <Tooltip
                     boxShadow="dark-lg"
@@ -191,9 +227,14 @@ const DetailsTransaction = () => {
               mt="2"
             >
               <Icon mb="1" color="#197c00" as={ArrowUpIcon} />
-              <Text fontSize="13px" fontWeight="extrabold">
-                Hash del Bloque
-              </Text>
+              <Badge
+                maxW="max-content"
+                bg="#032755"
+                color="white"
+                fontWeight="bold"
+              >
+                Hash del bloque
+              </Badge>
               <Tooltip
                 boxShadow="dark-lg"
                 bg="black"
