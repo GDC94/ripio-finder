@@ -16,16 +16,17 @@ const Container: React.FC = () => {
       </Stack>
       <Flex w="1400px" p="2" flexDirection="column" m="auto">
         <Flex
+          mt="3"
           alignItems="center"
           flexDirection="row"
           justifyContent="space-between"
         >
-          <Stack  w="full" alignItems="left">
+          <Stack w="full" alignItems="left">
             <Text fontWeight="bold" color="white">
               Operación realizada hace
             </Text>
           </Stack>
-          <Stack  w="full" alignItems="left">
+          <Stack w="full" alignItems="left">
             <Text fontWeight="bold" color="white">
               Hash de la operación
             </Text>
@@ -45,7 +46,9 @@ const Container: React.FC = () => {
               Dirección de destino
             </Text>
           </Stack>
-        
+          <Stack w="full">
+            <Text fontWeight="bold" color="white"></Text>
+          </Stack>
         </Flex>
         <TransactionCard />
       </Flex>

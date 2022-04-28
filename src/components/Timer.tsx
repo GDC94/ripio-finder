@@ -9,17 +9,15 @@ const TimeConverter = (minutes: number) => {
   }
   let horas = Math.floor(minutes / 60);
   minutes = minutes % 60;
+  const resultado = `${horas} hr ${minutes} min `;
+  const respuesta = resultado.replace(/["']/g, "");
 
-  return {
-    horas,
-    minutes,
-  };
+  return respuesta;
 };
 
 interface Props {
   minutes: number;
 }
-
 
 const Timer = ({ minutes }: Props) => {
   return (
@@ -32,7 +30,7 @@ const Timer = ({ minutes }: Props) => {
         color="white"
         fontSize="15px"
       >
-        {JSON.stringify(TimeConverter(minutes))}
+        🕖 {TimeConverter(minutes)}
       </Tag>
     </Flex>
   );
