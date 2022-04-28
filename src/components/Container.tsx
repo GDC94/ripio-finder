@@ -15,27 +15,38 @@ const Container: React.FC = () => {
         <Image src={eth} alt="" w="10" />
       </Stack>
       <Flex w="1400px" p="2" flexDirection="column" m="auto">
-        <Stack
+        <Flex
           alignItems="center"
           flexDirection="row"
           justifyContent="space-between"
         >
-          <Stack w="full" alignItems="left">
+          <Stack  w="full" alignItems="left">
             <Text fontWeight="bold" color="white">
-              Block hash
+              Operación realizada hace
+            </Text>
+          </Stack>
+          <Stack  w="full" alignItems="left">
+            <Text fontWeight="bold" color="white">
+              Hash de la operación
             </Text>
           </Stack>
           <Stack w="full" alignItems="left">
             <Text fontWeight="bold" color="white">
-              Desde
+              Hash del Bloque
+            </Text>
+          </Stack>
+          <Stack w="full" alignItems="left">
+            <Text fontWeight="bold" color="white">
+              Dirección de origen
             </Text>
           </Stack>
           <Stack w="full">
             <Text fontWeight="bold" color="white">
-              Hacia
+              Dirección de destino
             </Text>
           </Stack>
-        </Stack>
+        
+        </Flex>
         <TransactionCard />
       </Flex>
     </Stack>

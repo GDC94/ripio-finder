@@ -53,6 +53,7 @@ export default function Buscador() {
           </FormControl>
           <FormControl w={{ base: "100%", md: "40%", lg: "30%" }}>
             <Button
+              _focus={{ outline: "none" }}
               transition=".4s"
               w="100%"
               type={"submit"}
