@@ -1,12 +1,11 @@
 import { Flex, Image, Stack, Text } from "@chakra-ui/react";
 import eth from "../assets/eth-green.svg";
-import { useTransactions } from "../Hooks/useTransactions";
+import { TransactionProps } from "../interfaces/transactionInterface";
 import TransactionCard from "./TransactionCard";
 
-const Container: React.FC = () => {
 
-  const transactions = useTransactions();
-  console.log(transactions)
+
+const Container = (props: TransactionProps) => {
   return (
     <Stack
       pos="relative"

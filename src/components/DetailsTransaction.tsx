@@ -18,8 +18,16 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import block from "../assets/icons8-blockchain-64.png";
+import { Transaction } from "../interfaces/transactionInterface";
 
-const DetailsTransaction = () => {
+
+interface DetailProps {
+  transaction?: Transaction[],
+
+}
+
+
+const DetailsTransaction = (props: DetailProps) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (

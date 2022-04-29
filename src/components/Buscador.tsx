@@ -8,11 +8,31 @@ import {
   Container,
   Flex,
 } from "@chakra-ui/react";
+import { useTransactions } from "../Hooks/useTransactions";
 
 export default function Buscador() {
   const [direction, setDirection] = useState("");
-
   const [error, setError] = useState(false);
+
+  const transactions = useTransactions();
+  console.log(transactions);
+
+  
+  
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setDirection(e.target.value);
+  };
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    if (direction === "") {
+      setError(true);
+    }
+  }
+
+
+
+
 
   return (
     <Flex align={"center"} justify={"center"}>
@@ -21,12 +41,7 @@ export default function Buscador() {
           direction={{ base: "column", md: "row" }}
           as={"form"}
           spacing={"4px"}
-          onSubmit={(e: FormEvent) => {
-            e.preventDefault();
-            if (direction === "") {
-              setError(true);
-            }
-          }}
+          onSubmit={() => handleSubmit}
         >
           <FormControl w={{ base: "100%", md: "40%", lg: "100%" }}>
             <Input
@@ -44,9 +59,7 @@ export default function Buscador() {
               placeholder={"Ingresá una dirección aquí..."}
               aria-label={"Your Email"}
               value={direction}
-              onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                setDirection(e.target.value)
-              }
+              onChange={handleChange}
               boxShadow={"dark-lg"}
               rounded="md"
             />

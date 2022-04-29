@@ -1,13 +1,26 @@
 import { ArrowForwardIcon } from "@chakra-ui/icons";
-import { Flex, Icon, Stack, Tag, Text, Tooltip } from "@chakra-ui/react";
-import React from "react";
+import { Flex, Icon, Stack } from "@chakra-ui/react";
+import { TransactionProps } from "../interfaces/transactionInterface";
 import DetailsTransaction from "./DetailsTransaction";
 import HashCard from "./HashCard";
 import Timer from "./Timer";
 
-const TransactionCard: React.FC = () => {
+
+const TransactionCard = (props: TransactionProps) => {
   return (
-    <Flex mt='2' mb='2' rounded="md" h="48px" w="full" transition='.4s' _hover={{bg:'#030b53', transform: "translateY(-1px)", boxShadow: 'dark-lg'}}>
+    <Flex
+      mt="2"
+      mb="2"
+      rounded="md"
+      h="48px"
+      w="full"
+      transition=".4s"
+      _hover={{
+        bg: "#030b53",
+        transform: "translateY(-1px)",
+        boxShadow: "dark-lg",
+      }}
+    >
       <Stack
         justifyContent="center"
         overflow="hidden"
@@ -35,7 +48,13 @@ const TransactionCard: React.FC = () => {
 
       <Flex alignItems="center" w="full" flexDirection="row">
         <HashCard transactionValue="0x95a9bd206ae52c4ba8eecfc93d18eacdd41c88cc" />
-        <Icon ml="2" color='whatsapp.300' transition='.4s' _hover={{transform: "translateX(3px)"}} as={ArrowForwardIcon} />
+        <Icon
+          ml="2"
+          color="whatsapp.300"
+          transition=".4s"
+          _hover={{ transform: "translateX(3px)" }}
+          as={ArrowForwardIcon}
+        />
       </Flex>
 
       <Stack w="full" justifyContent="center">
