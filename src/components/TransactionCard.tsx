@@ -1,12 +1,15 @@
 import { ArrowForwardIcon } from "@chakra-ui/icons";
-import { Flex, Icon, Stack } from "@chakra-ui/react";
-import { TransactionProps } from "../interfaces/transactionInterface";
+import { Flex, Icon, Stack, Tag, Text } from "@chakra-ui/react";
+import { Transaction, TransactionProps } from "../interfaces/transactionInterface";
 import DetailsTransaction from "./DetailsTransaction";
 import HashCard from "./HashCard";
-import Timer from "./Timer";
 
+interface Props {
+  transaction: []
+}
 
-const TransactionCard = (props: TransactionProps) => {
+const TransactionCard = (props: Props) => {
+  console.log('desde card', props)
   return (
     <Flex
       mt="2"
@@ -21,14 +24,7 @@ const TransactionCard = (props: TransactionProps) => {
         boxShadow: "dark-lg",
       }}
     >
-      <Stack
-        justifyContent="center"
-        overflow="hidden"
-        w="full"
-        alignItems="left"
-      >
-        <Timer minutes={90} />
-      </Stack>
+    
       <Stack
         justifyContent="center"
         overflow="hidden"

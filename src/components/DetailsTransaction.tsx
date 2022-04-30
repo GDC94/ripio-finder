@@ -42,6 +42,7 @@ const DetailsTransaction = (props: DetailProps) => {
         fontWeight="bold"
         rounded="md"
         rightIcon={<ViewIcon />}
+ 
       >
         Más detalles
       </Button>
@@ -272,6 +273,7 @@ const DetailsTransaction = (props: DetailProps) => {
               _hover={{ bg: "#0D74FF" }}
               color="white"
               onClick={onClose}
+          
             >
               cerrar
             </Button>

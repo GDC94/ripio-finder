@@ -1,15 +1,16 @@
 import { Flex, Image, Stack, Text } from "@chakra-ui/react";
 import eth from "../assets/eth-green.svg";
-import { TransactionProps } from "../interfaces/transactionInterface";
 import TransactionCard from "./TransactionCard";
 
+interface Props {
+  transactions: [];
+}
 
-
-const Container = (props: TransactionProps) => {
+const ContainerTSX = ({ transactions }: Props) => {
   return (
     <Stack
       pos="relative"
-      height="450px"
+      height="auto"
       bg="#050e61"
       w="full"
       alignItems="center"
@@ -24,11 +25,6 @@ const Container = (props: TransactionProps) => {
           flexDirection="row"
           justifyContent="space-between"
         >
-          <Stack w="full" alignItems="left">
-            <Text fontWeight="bold" color="white">
-              Operación realizada hace
-            </Text>
-          </Stack>
           <Stack w="full" alignItems="left">
             <Text fontWeight="bold" color="white">
               Hash de la operación
@@ -53,10 +49,10 @@ const Container = (props: TransactionProps) => {
             <Text fontWeight="bold" color="white"></Text>
           </Stack>
         </Flex>
-        <TransactionCard />
+        <TransactionCard transaction={transactions} />
       </Flex>
     </Stack>
   );
 };
 
-export default Container;
+export default ContainerTSX;

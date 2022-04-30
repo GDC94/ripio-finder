@@ -1,7 +1,7 @@
 import { Stack, Text } from "@chakra-ui/react";
 
 import Buscador from "./components/Buscador";
-import Container from "./components/Container";
+import Container from "./components/ContainerTSX";
 
 import Header from "./components/Header";
 import Motion from "./components/Motion";
@@ -23,7 +23,7 @@ function App() {
         <Buscador />
       </Stack>
 
-      <Container />
+    
     </Motion>
   );
 }

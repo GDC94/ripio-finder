@@ -27,7 +27,7 @@ const HashCard = ({ transactionValue }: Props) => {
           color="white"
           fontSize="15px"
         >
-          {transactionValue.substr(0, 14)} . . .
+          {transactionValue.substr(0, 21)} . . .
         </Tag>
       </Tooltip>
 
