@@ -5,8 +5,8 @@ import App from "./App";
 import { ChakraProvider } from "@chakra-ui/react";
 import theme from "../theme";
 import { MoralisProvider } from "react-moralis";
-const appId = "uVSsa6u6x1o1QDHbeqPk77QKmWn2GwrmnG17F14T";
-const server = "https://2k93pxiek3of.usemoralis.com:2053/server";
+const appId = "Ycq0QlCPdq9V6E6mF1sCVHE932GbIEIPbURgY7SS";
+const server = "https://4czbbjur1wdv.usemoralis.com:2053/server";
 
 
 ReactDOM.render(

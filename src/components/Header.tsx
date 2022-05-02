@@ -10,8 +10,9 @@ const Header: React.FC = () => {
       flexDirection="column"
       alignItems="center"
       mt="4"
+  
     >
-      <Image pos="absolute" left="0" src={coin} alt="" w="28" />
+      <Image pos="absolute" left="0" src={coin} alt="" w='24' />
 
       <Image src={logo} alt="" w="20" />
       <Image
@@ -19,9 +20,9 @@ const Header: React.FC = () => {
         right="5"
         src={coin2}
         alt=""
-        w="20"
+        w="10"
         filter="auto"
-        blur="2px"
+        blur="1px"
       />
     </Stack>
   );

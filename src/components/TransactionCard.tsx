@@ -1,19 +1,23 @@
 import { ArrowForwardIcon } from "@chakra-ui/icons";
 import { Flex, Icon, Stack, Tag, Text } from "@chakra-ui/react";
-import { Transaction, TransactionProps } from "../interfaces/transactionInterface";
+import { Transaction } from "../interfaces/transactionInterface";
 import DetailsTransaction from "./DetailsTransaction";
 import HashCard from "./HashCard";
 
 interface Props {
-  transaction: []
+  transaction: Transaction
 }
 
-const TransactionCard = (props: Props) => {
-  console.log('desde card', props)
+const TransactionCard = ({transaction}: Props) => {
+  
+  console.log(transaction.from_address)
+  
+
+  
   return (
     <Flex
       mt="2"
-      mb="2"
+  
       rounded="md"
       h="48px"
       w="full"
@@ -24,14 +28,13 @@ const TransactionCard = (props: Props) => {
         boxShadow: "dark-lg",
       }}
     >
-    
       <Stack
         justifyContent="center"
         overflow="hidden"
         w="full"
         alignItems="left"
       >
-        <HashCard transactionValue="0x3bbb2f9ce305b5a292dc27572bb096c0017029eb7652a56816d2d23c4e6bb676" />
+        <HashCard transactionValue={transaction.hash} />
       </Stack>
       <Stack
         justifyContent="center"
@@ -39,11 +42,11 @@ const TransactionCard = (props: Props) => {
         w="full"
         alignItems="left"
       >
-        <HashCard transactionValue="0x01721e2a2c2520d8072d1a89501b69bc333de7a65d52fff95cf587889f327e17" />
+        <HashCard transactionValue={transaction.block_hash} />
       </Stack>
 
       <Flex alignItems="center" w="full" flexDirection="row">
-        <HashCard transactionValue="0x95a9bd206ae52c4ba8eecfc93d18eacdd41c88cc" />
+        <HashCard transactionValue={transaction.from_address} />
         <Icon
           ml="2"
           color="whatsapp.300"
@@ -54,11 +57,11 @@ const TransactionCard = (props: Props) => {
       </Flex>
 
       <Stack w="full" justifyContent="center">
-        <HashCard transactionValue="0x95a9bd206ae52c4ba8eecfc93d18eacdd41c88cc" />
+        <HashCard transactionValue={transaction.to_address}/>
       </Stack>
 
       <Stack w="full" justifyContent="center">
-        <DetailsTransaction />
+        <DetailsTransaction transaction={transaction} />
       </Stack>
     </Flex>
   );

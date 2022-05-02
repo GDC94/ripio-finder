@@ -21,13 +21,13 @@ import block from "../assets/icons8-blockchain-64.png";
 import { Transaction } from "../interfaces/transactionInterface";
 
 
-interface DetailProps {
-  transaction?: Transaction[],
-
+interface Props {
+  transaction: Transaction
 }
 
 
-const DetailsTransaction = (props: DetailProps) => {
+
+const DetailsTransaction = ({transaction}: Props) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
@@ -75,8 +75,7 @@ const DetailsTransaction = (props: DetailProps) => {
                 </Badge>
               </Tooltip>
               <Text ml="3" fontWeight="bold" color="black" fontSize="15px">
-                {" "}
-                8{" "}
+                {transaction.block_number}
               </Text>
             </Flex>
 
@@ -96,12 +95,11 @@ const DetailsTransaction = (props: DetailProps) => {
                   color="white"
                   fontWeight="bold"
                 >
-                  Time-stamp:{" "}
+                  TimeStamp:{" "}
                 </Badge>
               </Tooltip>
               <Text ml="3" fontWeight="bold" color="black" fontSize="15px">
-                {" "}
-                1438948043{" "}
+               {transaction.block_timestamp}
               </Text>
             </Flex>
 
@@ -125,8 +123,7 @@ const DetailsTransaction = (props: DetailProps) => {
                 </Badge>
               </Tooltip>
               <Text ml="3" fontWeight="bold" color="black" fontSize="15px">
-                {" "}
-                8{" "}
+               {transaction.gas}
               </Text>
             </Flex>
 
@@ -150,8 +147,7 @@ const DetailsTransaction = (props: DetailProps) => {
                 </Badge>
               </Tooltip>
               <Text ml="3" fontWeight="bold" color="black" fontSize="15px">
-                {" "}
-                8{" "}
+              {transaction.nonce}
               </Text>
             </Flex>
             <Flex h="70px" alignItems="center" justifyContent="space-between">
@@ -170,7 +166,7 @@ const DetailsTransaction = (props: DetailProps) => {
                     bg="black"
                     rounded="md"
                     textAlign="center"
-                    label={"0xbd04df86576bf4a743277049aa319914d88da4a8"}
+                    label={transaction.from_address}
                   >
                     <Tag
                       p="0"
@@ -180,7 +176,7 @@ const DetailsTransaction = (props: DetailProps) => {
                       color="#ff450d"
                       fontSize="13px"
                     >
-                      {"0xbd04df86576bf4a743277049aa319914d88da4a8".substr(
+                      {transaction.from_address.substr(
                         0,
                         10
                       )}{" "}
@@ -208,7 +204,7 @@ const DetailsTransaction = (props: DetailProps) => {
                     bg="black"
                     rounded="md"
                     textAlign="center"
-                    label={"0xbd04df86576bf4a743277049aa319914d88da4a8"}
+                    label={transaction.to_address}
                   >
                     <Tag
                       p="0"
@@ -218,7 +214,7 @@ const DetailsTransaction = (props: DetailProps) => {
                       color="#2f9500"
                       fontSize="13px"
                     >
-                      {"0xbd04df86576bf4a743277049aa319914d88da4a8".substr(
+                      {transaction.to_address.substr(
                         0,
                         10
                       )}{" "}
@@ -249,7 +245,7 @@ const DetailsTransaction = (props: DetailProps) => {
                 bg="black"
                 rounded="md"
                 textAlign="center"
-                label={"0xbd04df86576bf4a743277049aa319914d88da4a8"}
+                label={transaction.block_hash}
               >
                 <Tag
                   p="0"
@@ -259,7 +255,7 @@ const DetailsTransaction = (props: DetailProps) => {
                   color="#0D74FF"
                   fontSize="13px"
                 >
-                  {"0xbd04df86576bf4a743277049aa319914d88da4a8".substr(0, 10)}{" "}
+                  {transaction.block_hash.substr(0, 10)}{" "}
                   ...
                 </Tag>
               </Tooltip>

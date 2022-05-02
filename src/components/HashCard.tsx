@@ -3,7 +3,7 @@ import { Flex, IconButton, Tag, Tooltip, useClipboard } from "@chakra-ui/react";
 import { useState } from "react";
 
 interface Props {
-  transactionValue: any;
+  transactionValue: string;
 }
 
 const HashCard = ({ transactionValue }: Props) => {
@@ -27,7 +27,7 @@ const HashCard = ({ transactionValue }: Props) => {
           color="white"
           fontSize="15px"
         >
-          {transactionValue.substr(0, 21)} . . .
+          {transactionValue?.substr(0, 15)} . . .
         </Tag>
       </Tooltip>
 

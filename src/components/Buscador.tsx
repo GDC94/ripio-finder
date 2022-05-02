@@ -16,9 +16,13 @@ export default function Buscador() {
   const Web3Api = useMoralisWeb3Api();
 
   const [input, setInput] = useState<string>("");
+  const [resultados, setResultados] = useState<any>();
   const [error, setError] = useState<boolean>(false);
   const [address, setAddress] = useState<string>("");
   const [transactions, setTransactions] = useState<any>();
+  const [loading, setLoading] = useState<boolean>(false);
+
+  const [visible, setVisible] = useState<boolean>(false);
 
   const Reg = /^0x[a-fA-F0-9]{40}$/;
 
@@ -33,27 +37,35 @@ export default function Buscador() {
       setTimeout(() => {
         setError(false);
       }, 2000);
+      setInput('')
+      return;
     }
+    setLoading(true);
     setAddress(input);
     setInput("");
   };
 
-  const getMyTransactions = async () => {
-    const result = await Web3Api.account
+  const getTransactions = async () => {
+    const data = await Web3Api.account
       .getTransactions({
         chain: "eth",
         address: address,
-        limit: 10,
-        offset: 100,
+        limit: 60,
       })
       .catch((err) => console.log(err));
-    if (result) {
-      setTransactions(result.result);
+
+    if (data) {
+      setTransactions(data.result);
+      setResultados(data.result?.length);
+      setTimeout(() => {
+        setLoading(false);
+        setVisible(true);
+      }, 5500);
     }
   };
 
   useEffect(() => {
-    getMyTransactions();
+    getTransactions();
   }, [address]);
 
   return (
@@ -68,7 +80,7 @@ export default function Buscador() {
           >
             <FormControl w={{ base: "100%", md: "40%", lg: "100%" }}>
               <Input
-                _hover={{ borderColor: "blue.100" }}
+                _hover={{ borderColor: "blue.100", outlineOffset: '3px' }}
                 size="sm"
                 variant={"outline"}
                 borderWidth={2}
@@ -85,6 +97,7 @@ export default function Buscador() {
                 boxShadow={"dark-lg"}
                 rounded="md"
                 type="text"
+                bg="#000641"
               />
             </FormControl>
             <FormControl w={{ base: "100%", md: "40%", lg: "30%" }}>
@@ -119,7 +132,12 @@ export default function Buscador() {
           </Stack>
         </Container>
       </Flex>
-      <ContainerTSX transactions={transactions} />
+      <ContainerTSX
+        loading={loading}
+        transactions={transactions}
+        resultados={resultados}
+        visible={visible}
+      />
     </>
   );
 }
