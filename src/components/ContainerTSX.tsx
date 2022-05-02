@@ -185,7 +185,7 @@ const ContainerTSX = ({
                 <Icon color="green.100" as={FiGithub} />
               </Box>
               <Text fontWeight="bold" fontSize="14px" color="lime">
-                Germán Derbes Catoni
+              Germán Derbes Catoni
               </Text>
             </Stack>
           </Flex>
