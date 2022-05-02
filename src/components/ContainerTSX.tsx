@@ -1,13 +1,4 @@
-import {
-  Box,
-  Flex,
-  Icon,
-  Image,
-  Input,
-  Spinner,
-  Stack,
-  Text,
-} from "@chakra-ui/react";
+import { Box, Flex, Icon, Image, Spinner, Stack, Text } from "@chakra-ui/react";
 import eth from "../assets/eth-green.svg";
 import { Transaction } from "../interfaces/transactionInterface";
 import TransactionCard from "./TransactionCard";
@@ -33,7 +24,7 @@ const ContainerTSX = ({
   const [perPage, setPerPage] = useState<number>(6);
   const [loadingPage, setLoadingPage] = useState<boolean>(false);
 
-  const maximo = Number(resultados) / perPage;
+  const maximo = Math.ceil(Number(resultados) / perPage);
 
   return (
     <Stack height="450px" w="full" alignItems="center">
@@ -147,7 +138,7 @@ const ContainerTSX = ({
           <Flex
             flexDirection="column"
             h="400px"
-            w="full"
+            w={{ lg: "full", sm: "500px" }}
             mt="4"
             alignItems="center"
             justifyContent="center"
@@ -185,7 +176,7 @@ const ContainerTSX = ({
                 <Icon color="green.100" as={FiGithub} />
               </Box>
               <Text fontWeight="bold" fontSize="14px" color="lime">
-              Germán Derbes Catoni
+                Germán Derbes Catoni
               </Text>
             </Stack>
           </Flex>

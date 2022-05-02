@@ -41,6 +41,7 @@ export default function Buscador() {
       setInput("");
       return;
     }
+    
 
     setLoading(true);
     setAddress(input);
@@ -75,8 +76,8 @@ export default function Buscador() {
 
   return (
     <>
-      <Flex align={"center"} justify={"center"}>
-        <Container w={"700px"} p={4}>
+      <Flex alignItems={"center"} justifyContent={"center"}>
+        <Container w={{ lg: "700px", sm: "500px", base: "300px" }} p={4}>
           <Stack
             direction={{ base: "column", md: "row" }}
             as={"form"}

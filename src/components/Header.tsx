@@ -12,7 +12,7 @@ const Header: React.FC = () => {
       mt="4"
   
     >
-      <Image pos="absolute" left="0" src={coin} alt="" w='24' />
+      <Image  pos="absolute" left="0" src={coin} alt="" w='24' display={{lg: 'inherit', md: 'none', sm: 'none'}} />
 
       <Image src={logo} alt="" w="20" />
       <Image
