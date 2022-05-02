@@ -14,7 +14,6 @@ import { useMoralisWeb3Api } from "react-moralis";
 
 export default function Buscador() {
   const Web3Api = useMoralisWeb3Api();
-
   const [input, setInput] = useState<string>("");
   const [resultados, setResultados] = useState<any>();
   const [error, setError] = useState<boolean>(false);
@@ -22,7 +21,6 @@ export default function Buscador() {
   const [transactions, setTransactions] = useState<any>();
   const [loading, setLoading] = useState<boolean>(false);
   const [notResult, setNotResults] = useState<boolean>(false);
-
   const [visible, setVisible] = useState<boolean>(false);
 
   const Reg = /^0x[a-fA-F0-9]{40}$/;

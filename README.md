@@ -2,7 +2,7 @@
 
 
 
-La app permite listar las transacciones por una direccion de wallet determinada, pudiendo ver detalles de cada una de ellas. Esta construida con React, typescrip, Moralis y chakra ui
+La app permite listar las transacciones por una direccion de wallet determinada, pudiendo ver detalles como por ejemplo la direccion de origen, el hash de la operacion, el numero del bloque, el timestamp, etc. Esta construida con React, typescrip, Moralis y chakra ui
 
 Si querés, podes probar con estas direcciones:
 1) 0xf16e9b0d03470827a95cdfd0cb8a8a3b46969b91
