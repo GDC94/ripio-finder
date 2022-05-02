@@ -46,6 +46,7 @@ const Paginador = ({ maximo, setPage, page, setLoadingPage }: Props) => {
           borderColor="#0d00bd78"
           onClick={previousPage}
           _focus={{ outline: "none" }}
+
         >
           Anterior
         </Button>

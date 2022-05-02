@@ -5,15 +5,19 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "jest"
   },
   "dependencies": {
     "@chakra-ui/icons": "^1.1.7",
     "@chakra-ui/react": "^1.8.8",
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^12.1.5",
     "@walletconnect/web3-provider": "^1.7.8",
     "framer-motion": "^6.3.2",
+    "jest-environment-jsdom": "^28.0.2",
     "moralis": "^1.5.11",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -21,10 +25,31 @@
     "react-moralis": "^1.3.5"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.17.10",
+    "@babel/preset-react": "^7.16.7",
+    "@babel/preset-typescript": "^7.16.7",
+    "@testing-library/user-event": "^14.1.1",
     "@types/react": "^17.0.33",
     "@types/react-dom": "^17.0.10",
     "@vitejs/plugin-react": "^1.0.7",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^28.0.3",
     "typescript": "^4.5.4",
     "vite": "^2.8.0"
+  },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "setupFilesAfterEnv": [
+      "<rootDir>/jest-setup.ts"
+    ],
+    "moduleNameMapper": {
+      "\\.(css|scss|svg|png)$": "identity-obj-proxy"
+    },
+    "transformIgnorePatterns": [
+      "/node_modules/(?![@autofiy/autofiyable|@autofiy/property]).+\\.js$",
+      "/node_modules/(?![@autofiy/autofiyable|@autofiy/property]).+\\.ts$",
+      "/node_modules/(?![@autofiy/autofiyable|@autofiy/property]).+\\.tsx$"
+  ]
+   
   }
 }
