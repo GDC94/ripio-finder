@@ -51,5 +51,8 @@
       "/node_modules/(?![@autofiy/autofiyable|@autofiy/property]).+\\.tsx$"
   ]
    
+  },
+  "resolutions": {
+    "csstype": "3.0.10"
   }
 }
