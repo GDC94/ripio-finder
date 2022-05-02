@@ -37,7 +37,7 @@ export default function Buscador() {
       setTimeout(() => {
         setError(false);
       }, 2000);
-      setInput('')
+      setInput("");
       return;
     }
     setLoading(true);
@@ -80,11 +80,12 @@ export default function Buscador() {
           >
             <FormControl w={{ base: "100%", md: "40%", lg: "100%" }}>
               <Input
-                _hover={{ borderColor: "blue.100", outlineOffset: '3px' }}
+                focusBorderColor="#00b7ff"
+                _hover={{ borderColor: "blue.100", outlineOffset: "3px" }}
                 size="sm"
                 variant={"outline"}
                 borderWidth={2}
-                color={"green.100"}
+                color={"lime"}
                 fontWeight="bold"
                 _placeholder={{
                   color: "gray.400",

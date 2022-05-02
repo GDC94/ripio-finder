@@ -1,5 +1,6 @@
 import { ArrowForwardIcon, ArrowBackIcon } from "@chakra-ui/icons";
-import { Button, Flex, Stack } from "@chakra-ui/react";
+import { Button, Flex, Input, Stack, Text } from "@chakra-ui/react";
+import { useState } from "react";
 
 interface Props {
   maximo: number;
@@ -9,12 +10,13 @@ interface Props {
 }
 
 const Paginador = ({ maximo, setPage, page, setLoadingPage }: Props) => {
+  const [input, setInput] = useState<number>(1);
   const NextPage = () => {
     setLoadingPage(true);
     setTimeout(() => {
       setLoadingPage(false);
     }, 1200);
-
+    setInput(input + 1);
     setPage(page + 1);
   };
   const previousPage = () => {
@@ -22,6 +24,7 @@ const Paginador = ({ maximo, setPage, page, setLoadingPage }: Props) => {
     setTimeout(() => {
       setLoadingPage(false);
     }, 1200);
+    setInput(input - 1);
     setPage(page - 1);
   };
 
@@ -29,6 +32,7 @@ const Paginador = ({ maximo, setPage, page, setLoadingPage }: Props) => {
     <Flex justifyContent="center" mt="5">
       <Flex justifyContent="center" alignItems="center">
         <Button
+          disabled={page === 1 || page < 1}
           w="100px"
           leftIcon={<ArrowBackIcon />}
           bg="transparent"
@@ -45,7 +49,27 @@ const Paginador = ({ maximo, setPage, page, setLoadingPage }: Props) => {
         >
           Anterior
         </Button>
+        <Input
+          fontWeight="extrabold"
+          _hover={{ borderColor: "transparent" }}
+          w="40px"
+          value={input}
+          isReadOnly
+          cursor="pointer"
+          rounded="md"
+          borderWidth={2}
+          color={"lime"}
+          size="sm"
+          placeholder=""
+          borderColor="transparent"
+          outline="none"
+          mr="1"
+        />
+        <Text mr="1.5" color="lime" fontWeight="extrabold">
+          de {maximo}
+        </Text>
         <Button
+          disabled={page === Math.ceil(maximo) || page > Math.ceil(maximo)}
           ml="1.5"
           w="100px"
           rightIcon={<ArrowForwardIcon />}

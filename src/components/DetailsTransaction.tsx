@@ -20,14 +20,11 @@ import {
 import block from "../assets/icons8-blockchain-64.png";
 import { Transaction } from "../interfaces/transactionInterface";
 
-
 interface Props {
-  transaction: Transaction
+  transaction: Transaction;
 }
 
-
-
-const DetailsTransaction = ({transaction}: Props) => {
+const DetailsTransaction = ({ transaction }: Props) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
@@ -42,7 +39,6 @@ const DetailsTransaction = ({transaction}: Props) => {
         fontWeight="bold"
         rounded="md"
         rightIcon={<ViewIcon />}
- 
       >
         Más detalles
       </Button>
@@ -99,7 +95,7 @@ const DetailsTransaction = ({transaction}: Props) => {
                 </Badge>
               </Tooltip>
               <Text ml="3" fontWeight="bold" color="black" fontSize="15px">
-               {transaction.block_timestamp}
+                {transaction.block_timestamp}
               </Text>
             </Flex>
 
@@ -123,7 +119,7 @@ const DetailsTransaction = ({transaction}: Props) => {
                 </Badge>
               </Tooltip>
               <Text ml="3" fontWeight="bold" color="black" fontSize="15px">
-               {transaction.gas}
+                {transaction.gas}
               </Text>
             </Flex>
 
@@ -147,7 +143,7 @@ const DetailsTransaction = ({transaction}: Props) => {
                 </Badge>
               </Tooltip>
               <Text ml="3" fontWeight="bold" color="black" fontSize="15px">
-              {transaction.nonce}
+                {transaction.nonce}
               </Text>
             </Flex>
             <Flex h="70px" alignItems="center" justifyContent="space-between">
@@ -176,11 +172,7 @@ const DetailsTransaction = ({transaction}: Props) => {
                       color="#ff450d"
                       fontSize="13px"
                     >
-                      {transaction.from_address.substr(
-                        0,
-                        10
-                      )}{" "}
-                      ...
+                      {transaction.from_address.substr(0, 10)} ...
                     </Tag>
                   </Tooltip>
                   <Icon ml="2" color="#197c00" as={ArrowForwardIcon} />
@@ -214,11 +206,7 @@ const DetailsTransaction = ({transaction}: Props) => {
                       color="#2f9500"
                       fontSize="13px"
                     >
-                      {transaction.to_address.substr(
-                        0,
-                        10
-                      )}{" "}
-                      ...
+                      {transaction.to_address.substr(0, 10)} ...
                     </Tag>
                   </Tooltip>
                   <Icon mr="2" color="#197c00" as={ArrowForwardIcon} />
@@ -255,8 +243,7 @@ const DetailsTransaction = ({transaction}: Props) => {
                   color="#0D74FF"
                   fontSize="13px"
                 >
-                  {transaction.block_hash.substr(0, 10)}{" "}
-                  ...
+                  {transaction.block_hash.substr(0, 10)} ...
                 </Tag>
               </Tooltip>
             </Flex>
@@ -269,7 +256,6 @@ const DetailsTransaction = ({transaction}: Props) => {
               _hover={{ bg: "#0D74FF" }}
               color="white"
               onClick={onClose}
-          
             >
               cerrar
             </Button>

@@ -5,19 +5,15 @@ import DetailsTransaction from "./DetailsTransaction";
 import HashCard from "./HashCard";
 
 interface Props {
-  transaction: Transaction
+  transaction: Transaction;
 }
 
-const TransactionCard = ({transaction}: Props) => {
-  
-  console.log(transaction.from_address)
-  
+const TransactionCard = ({ transaction }: Props) => {
+  console.log(transaction.from_address);
 
-  
   return (
     <Flex
       mt="2"
-  
       rounded="md"
       h="48px"
       w="full"
@@ -57,7 +53,7 @@ const TransactionCard = ({transaction}: Props) => {
       </Flex>
 
       <Stack w="full" justifyContent="center">
-        <HashCard transactionValue={transaction.to_address}/>
+        <HashCard transactionValue={transaction.to_address} />
       </Stack>
 
       <Stack w="full" justifyContent="center">

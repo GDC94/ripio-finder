@@ -1,4 +1,13 @@
-import { Box, Flex, Icon, Image, Spinner, Stack, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  Icon,
+  Image,
+  Input,
+  Spinner,
+  Stack,
+  Text,
+} from "@chakra-ui/react";
 import eth from "../assets/eth-green.svg";
 import { Transaction } from "../interfaces/transactionInterface";
 import TransactionCard from "./TransactionCard";
@@ -52,84 +61,88 @@ const ContainerTSX = ({
         ) : null}
 
         {visible ? (
-          <>
-            <Motion delay={"0.1"} duration={"1.2"}>
-              <Stack mt="3" mb="3" justifyContent="center" alignItems="center">
-                <Text
-                  mb="3"
-                  w="max-content"
-                  bg="transparent"
-                  color="green.100"
-                  fontWeight="extrabold"
-                  fontSize="16px"
-                >
-                  Se encontraron {resultados} resultados
+          <Motion delay={"0.1"} duration={"1.2"}>
+            <Stack mt="3" mb="3" justifyContent="center" alignItems="center">
+              <Text
+                rounded="md"
+                mb="2"
+                pl="1"
+                pr="1"
+                w="max-content"
+                bg="#38f0001d"
+                color="lime"
+                fontWeight="extrabold"
+                fontSize="15px"
+              >
+                Se encontraron {resultados} resultados
+              </Text>
+            </Stack>
+            <Flex
+              mt="3"
+              alignItems="center"
+              flexDirection="row"
+              justifyContent="space-between"
+              bg="#000641"
+              mb="3"
+            >
+              <Stack w="full" alignItems="left">
+                <Text fontWeight="bold" color="white">
+                  Hash de la operación
                 </Text>
               </Stack>
-              <Flex
-                mt="3"
-                alignItems="center"
-                flexDirection="row"
-                justifyContent="space-between"
-                bg="#000641"
-                mb="3"
-              >
-                <Stack w="full" alignItems="left">
-                  <Text fontWeight="bold" color="white">
-                    Hash de la operación
-                  </Text>
-                </Stack>
-                <Stack w="full" alignItems="left">
-                  <Text fontWeight="bold" color="white">
-                    Hash del Bloque
-                  </Text>
-                </Stack>
-                <Stack w="full" alignItems="left">
-                  <Text fontWeight="bold" color="white">
-                    Dirección de origen
-                  </Text>
-                </Stack>
-                <Stack w="full">
-                  <Text fontWeight="bold" color="white">
-                    Dirección de destino
-                  </Text>
-                </Stack>
-                <Stack w="full">
-                  <Text fontWeight="bold" color="white"></Text>
-                </Stack>
-              </Flex>
+              <Stack w="full" alignItems="left">
+                <Text fontWeight="bold" color="white">
+                  Hash del Bloque
+                </Text>
+              </Stack>
+              <Stack w="full" alignItems="left">
+                <Text fontWeight="bold" color="white">
+                  Dirección de origen
+                </Text>
+              </Stack>
+              <Stack w="full">
+                <Text fontWeight="bold" color="white">
+                  Dirección de destino
+                </Text>
+              </Stack>
+              <Stack w="full">
+                <Text fontWeight="bold" color="white"></Text>
+              </Stack>
+            </Flex>
 
-              <Stack>
-                {loadingPage ? (
-                  <Stack h="336px" justifyContent="center" alignItems="center">
-                    <Spinner
-                      thickness="7px"
-                      speed="3s"
-                      emptyColor="blue.100"
-                      color="green.100"
-                      size="md"
-                    />{" "}
-                    )
-                  </Stack>
-                ) : (
-                  transactions
+            <Stack>
+              {loadingPage ? (
+                <Stack h="336px" justifyContent="center" alignItems="center">
+                  <Spinner
+                    thickness="7px"
+                    speed="3s"
+                    emptyColor="blue.100"
+                    color="green.100"
+                    size="md"
+                  />{" "}
+                  )
+                </Stack>
+              ) : (
+                <Motion delay={"0.1"} duration={".6"}>
+                  {transactions
                     ?.slice(
                       (page - 1) * perPage,
                       (page - 1) * perPage + perPage
                     )
                     .map((tsx: Transaction) => (
                       <TransactionCard key={tsx.hash} transaction={tsx} />
-                    ))
-                )}
-              </Stack>
-              <Paginador
-                setLoadingPage={setLoadingPage}
-                maximo={maximo}
-                page={page}
-                setPage={setPage}
-              />
-            </Motion>
-          </>
+                    ))}
+                </Motion>
+              )}
+              )
+            </Stack>
+            <Paginador
+              setLoadingPage={setLoadingPage}
+              maximo={maximo}
+              page={page}
+              setPage={setPage}
+            />
+          </Motion>
         ) : (
           <Flex
             flexDirection="column"
@@ -171,7 +184,7 @@ const ContainerTSX = ({
               >
                 <Icon color="green.100" as={FiGithub} />
               </Box>
-              <Text fontWeight="bold" fontSize="14px" color="green.100">
+              <Text fontWeight="bold" fontSize="14px" color="lime">
                 Germán Derbes Catoni
               </Text>
             </Stack>
