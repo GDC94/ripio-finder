@@ -82,7 +82,7 @@ const DetailsTransaction = ({ transaction }: Props) => {
                 rounded="md"
                 textAlign="center"
                 label={
-                  "Es un dato almacenado en cada bloque a modo de serial único que tienen como principal función determinar el momento exacto en el que el bloque ha sido sido minado y validado por la red"
+                  "Tiene como principal función determinar el momento exacto en el que el bloque ha sido sido minado y validado por la red"
                 }
               >
                 <Badge
@@ -95,7 +95,7 @@ const DetailsTransaction = ({ transaction }: Props) => {
                 </Badge>
               </Tooltip>
               <Text ml="3" fontWeight="bold" color="black" fontSize="15px">
-                {transaction.block_timestamp}
+                {transaction.block_timestamp.replace("T", " - ")}
               </Text>
             </Flex>
 
@@ -246,6 +246,27 @@ const DetailsTransaction = ({ transaction }: Props) => {
                   {transaction.block_hash.substr(0, 10)} ...
                 </Tag>
               </Tooltip>
+            </Flex>
+
+            <Flex mt="3" flexDirection="row" alignItems="center">
+              <Tooltip
+                boxShadow="dark-lg"
+                bg="black"
+                rounded="md"
+                textAlign="center"
+              >
+                <Badge
+                  maxW="max-content"
+                  bg="#032755"
+                  color="white"
+                  fontWeight="bold"
+                >
+                  Valor:{" "}
+                </Badge>
+              </Tooltip>
+              <Text ml="3" fontWeight="bold" color="black" fontSize="15px">
+                {transaction.value}
+              </Text>
             </Flex>
           </ModalBody>
           <ModalFooter p="3">

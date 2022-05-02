@@ -21,6 +21,7 @@ export default function Buscador() {
   const [address, setAddress] = useState<string>("");
   const [transactions, setTransactions] = useState<any>();
   const [loading, setLoading] = useState<boolean>(false);
+  const [notResult, setNotResults] = useState<boolean>(false);
 
   const [visible, setVisible] = useState<boolean>(false);
 
@@ -40,6 +41,7 @@ export default function Buscador() {
       setInput("");
       return;
     }
+
     setLoading(true);
     setAddress(input);
     setInput("");
@@ -52,7 +54,10 @@ export default function Buscador() {
         address: address,
         limit: 60,
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        setNotResults(true);
+        console.log(err);
+      });
 
     if (data) {
       setTransactions(data.result);
@@ -118,19 +123,34 @@ export default function Buscador() {
               </Button>
             </FormControl>
           </Stack>
-          <Stack minH="16">
-            <Text
-              fontSize="sm"
-              mt={4}
-              textAlign={"center"}
-              color={error ? "#ff0000" : "#a8a8a8c5"}
-              fontWeight="bold"
-            >
-              {error
-                ? "Debes ingresar una dirección válida"
-                : "Recordá que la dirección debe tener el siguiente formato: 0x8CF70736d8E7715437306bb278060155b0ec0f84"}
-            </Text>
-          </Stack>
+
+          {!notResult ? (
+            <Stack minH="16">
+              <Text
+                fontSize="sm"
+                mt={4}
+                textAlign={"center"}
+                color={error ? "#ff0000" : "#a8a8a8c5"}
+                fontWeight="bold"
+              >
+                No se encontraron resultados
+              </Text>
+            </Stack>
+          ) : (
+            <Stack minH="16">
+              <Text
+                fontSize="sm"
+                mt={4}
+                textAlign={"center"}
+                color={error ? "#ff0000" : "#a8a8a8c5"}
+                fontWeight="bold"
+              >
+                {error
+                  ? "Debes ingresar una dirección válida"
+                  : "Recordá que la dirección debe tener el siguiente formato: 0x3ab28ecedea6cdb6feed398e93ae8c7b316b1182"}
+              </Text>
+            </Stack>
+          )}
         </Container>
       </Flex>
       <ContainerTSX
